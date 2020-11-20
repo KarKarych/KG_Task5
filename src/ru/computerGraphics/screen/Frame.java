@@ -19,13 +19,13 @@ public class Frame extends JFrame implements ActionListener {
       e.printStackTrace();
     }
 
-    FirePanel firePanel = new FirePanel();
+    BonfirePanel bonfirePanel = new BonfirePanel();
     JPanel actionPanel = new JPanel();
 
-    updateTimer = new Timer(20, firePanel);
+    updateTimer = new Timer(20, bonfirePanel);
     updateTimer.start();
 
-    add(firePanel);
+    add(bonfirePanel);
     add(actionPanel, BorderLayout.PAGE_START);
 
     actionPanel.setSize(new Dimension(1366, 1200));

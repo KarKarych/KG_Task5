@@ -5,14 +5,14 @@ import ru.computerGraphics.utils.Defaults;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Fire {
+public class Bonfire {
   private final Integer width = 128;
   private final Integer height = 72;
   private final Integer[] backBuffer;
   private final Integer[] tempBuffer;
   private final Integer[] firePalette;
 
-  public Fire() {
+  public Bonfire() {
     backBuffer = makeBuf();
     tempBuffer = makeBuf();
 

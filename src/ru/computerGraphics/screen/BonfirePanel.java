@@ -1,17 +1,17 @@
 package ru.computerGraphics.screen;
 
-import ru.computerGraphics.model.Fire;
+import ru.computerGraphics.model.Bonfire;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FirePanel extends JPanel implements ActionListener {
-  private final Fire fire;
+public class BonfirePanel extends JPanel implements ActionListener {
+  private final Bonfire bonfire;
 
-  public FirePanel() {
-    fire = new Fire();
+  public BonfirePanel() {
+    bonfire = new Bonfire();
   }
 
   @Override
@@ -19,7 +19,7 @@ public class FirePanel extends JPanel implements ActionListener {
     super.paintComponent(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-    g.drawImage(fire.getFrame(), 0, 0, getWidth(), getHeight() * 19 / 18, this);
+    g.drawImage(bonfire.getFrame(), 0, 0, getWidth(), getHeight() * 19 / 18, this);
   }
 
   @Override
