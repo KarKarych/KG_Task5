@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Frame extends JFrame implements ActionListener {
-  private BonfirePanel bonfirePanel;
+  private final BonfirePanel bonfirePanel;
   private boolean go = true;
   private final Timer updateTimer;
   private final Button pauseButton;
