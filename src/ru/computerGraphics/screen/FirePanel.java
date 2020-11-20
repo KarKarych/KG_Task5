@@ -18,10 +18,8 @@ public class FirePanel extends JPanel implements ActionListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2d = (Graphics2D) g;
-    RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-    rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-    g2d.setRenderingHints(rh);
-    g.drawImage(fire.draw(getWidth(), getHeight()), 0, 0,getWidth(), getHeight() * 19/18, this);
+    g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+    g.drawImage(fire.getFrame(), 0, 0, getWidth(), getHeight() * 19 / 18, this);
   }
 
   @Override

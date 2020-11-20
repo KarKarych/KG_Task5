@@ -37,9 +37,13 @@ public class Fire {
     return buffer;
   }
 
-  public Image draw(int widthScreen, int heightScreen) {
-    Image fireFrame = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+  public Image getFrame() {
+    calculateNextFrame();
+    return fillFrame();
+  }
 
+  private Image fillFrame(){
+    Image fireFrame = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
     int s = width * (height - 2);
     int w = width;
 
@@ -58,9 +62,7 @@ public class Fire {
       g2.fillRect(widthTemp++, heightTemp, 1, 1);
     }
 
-    calculateNextFrame();
-
-    return fireFrame.getScaledInstance(widthScreen, heightScreen, Image.SCALE_AREA_AVERAGING);
+    return fireFrame;
   }
 
   private void calculateNextFrame() {
