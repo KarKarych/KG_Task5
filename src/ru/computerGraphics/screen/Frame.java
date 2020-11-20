@@ -1,14 +1,18 @@
 package ru.computerGraphics.screen;
 
+import ru.computerGraphics.model.Bonfire;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Frame extends JFrame implements ActionListener {
+  private BonfirePanel bonfirePanel;
   private boolean go = true;
   private final Timer updateTimer;
-  private final Button button;
+  private final Button pauseButton;
+  private final Button restartButton;
 
   public Frame() {
     setTitle("Task 5");
@@ -19,7 +23,7 @@ public class Frame extends JFrame implements ActionListener {
       e.printStackTrace();
     }
 
-    BonfirePanel bonfirePanel = new BonfirePanel();
+    bonfirePanel = new BonfirePanel();
     JPanel actionPanel = new JPanel();
 
     updateTimer = new Timer(20, bonfirePanel);
@@ -30,10 +34,14 @@ public class Frame extends JFrame implements ActionListener {
 
     actionPanel.setSize(new Dimension(1366, 1200));
 
-    button = new Button();
-    actionPanel.add(button);
-    button.addActionListener(this);
-    button.setLabel("Остановить анимацию");
+    pauseButton = new Button();
+    actionPanel.add(pauseButton);
+    pauseButton.addActionListener(this);
+    pauseButton.setLabel("Остановить анимацию");
+
+    restartButton = new Button();
+    restartButton.addActionListener(this);
+    restartButton.setLabel("Заново");
 
     JSlider slider = new JSlider();
     slider.setInverted(true);
@@ -42,6 +50,7 @@ public class Frame extends JFrame implements ActionListener {
     slider.setValue(20);
     slider.addChangeListener(e -> updateTimer.setDelay(((JSlider) e.getSource()).getValue()));
     actionPanel.add(slider);
+    actionPanel.add(restartButton);
 
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     pack();
@@ -51,14 +60,20 @@ public class Frame extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    go = !go;
+    if (e.getSource() == pauseButton) {
+      go = !go;
 
-    if (go) {
-      updateTimer.start();
-      button.setLabel("Остановить анимацию");
-    } else {
-      updateTimer.stop();
-      button.setLabel("Возобновить анимацию");
+      if (go) {
+        updateTimer.start();
+        pauseButton.setLabel("Остановить анимацию");
+      } else {
+        updateTimer.stop();
+        pauseButton.setLabel("Возобновить анимацию");
+      }
+    }
+
+    if (e.getSource() == restartButton) {
+      bonfirePanel.setBonfire(new Bonfire());
     }
   }
 }

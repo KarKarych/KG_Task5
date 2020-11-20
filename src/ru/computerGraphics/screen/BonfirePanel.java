@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BonfirePanel extends JPanel implements ActionListener {
-  private final Bonfire bonfire;
+  private Bonfire bonfire;
 
   public BonfirePanel() {
     bonfire = new Bonfire();
@@ -25,5 +25,9 @@ public class BonfirePanel extends JPanel implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     repaint();
+  }
+
+  public void setBonfire(Bonfire bonfire) {
+    this.bonfire = bonfire;
   }
 }
