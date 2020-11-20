@@ -10,7 +10,7 @@ public class Frame extends JFrame {
     setBackground(new Color(255, 255, 255));
     FirePanel firePanel = new FirePanel();
     setPreferredSize(new Dimension(1600, 900));
-    setResizable(false);
+    setResizable(true);
     add(firePanel);
     Timer updateTimer = new Timer(20, firePanel);
     updateTimer.start();
