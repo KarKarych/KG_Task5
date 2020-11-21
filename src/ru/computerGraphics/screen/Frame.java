@@ -43,9 +43,9 @@ public class Frame extends JFrame implements ActionListener {
 
     JSlider slider = new JSlider();
     slider.setInverted(true);
-    slider.setMinimum(8);
-    slider.setMaximum(32);
-    slider.setValue(20);
+    slider.setMinimum(6);
+    slider.setMaximum(18);
+    slider.setValue(12);
     slider.addChangeListener(e -> updateTimer.setDelay(((JSlider) e.getSource()).getValue()));
     actionPanel.add(slider);
     actionPanel.add(restartButton);
