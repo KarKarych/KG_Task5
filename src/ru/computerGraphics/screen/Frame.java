@@ -1,7 +1,5 @@
 package ru.computerGraphics.screen;
 
-import ru.computerGraphics.model.Bonfire;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -73,7 +71,7 @@ public class Frame extends JFrame implements ActionListener {
     }
 
     if (e.getSource() == restartButton) {
-      bonfirePanel.setBonfire(new Bonfire());
+      bonfirePanel.reloadBonfire();
     }
   }
 }

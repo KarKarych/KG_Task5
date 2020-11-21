@@ -8,11 +8,15 @@ import java.awt.image.BufferedImage;
 public class Bonfire {
   private final Integer width = 128;
   private final Integer height = 72;
-  private final Integer[] backBuffer;
-  private final Integer[] tempBuffer;
-  private final Integer[] firePalette;
+  private Integer[] backBuffer;
+  private Integer[] tempBuffer;
+  private Integer[] firePalette;
 
   public Bonfire() {
+    reload();
+  }
+
+  public void reload() {
     backBuffer = makeBuf();
     tempBuffer = makeBuf();
 
@@ -42,7 +46,7 @@ public class Bonfire {
     return fillFrame();
   }
 
-  private Image fillFrame(){
+  private Image fillFrame() {
     Image fireFrame = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
     int s = width * (height - 2);
     int w = width;
