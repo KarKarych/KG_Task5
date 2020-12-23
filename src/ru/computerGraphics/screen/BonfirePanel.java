@@ -19,7 +19,7 @@ public class BonfirePanel extends JPanel implements ActionListener {
     super.paintComponent(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-    g.drawImage(bonfire.getFrame(), 0, 0, getWidth(), getHeight() * 19 / 18, this);
+    g2d.drawImage(bonfire.getFrame(), 0, 0, getWidth(), getHeight() * 19 / 18, this);
   }
 
   @Override

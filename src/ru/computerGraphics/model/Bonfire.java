@@ -53,7 +53,8 @@ public class Bonfire {
 
     int widthTemp = 0, heightTemp = 0;
     Graphics2D g2 = (Graphics2D) fireFrame.getGraphics();
-    for (int j = 0, i = 0; j < s; ++j, i += 4) {
+
+    for (int j = 0; j < s; ++j) {
       g2.setColor(new Color(firePalette[tempBuffer[j + w] * 3],
               firePalette[tempBuffer[j + w] * 3 + 1],
               firePalette[tempBuffer[j + w] * 3 + 2]));
@@ -89,18 +90,17 @@ public class Bonfire {
       if (cool == 0 && (i >= coolMax || finalV > 0)) {
         finalV = (255 + finalV) % 256;
       }
+
       tempBuffer[i] = finalV;
     }
 
     max = width * (height - 2);
-    if (max >= 0) {
-      System.arraycopy(tempBuffer, width, backBuffer, 0, max);
-    }
+    System.arraycopy(tempBuffer, width, backBuffer, 0, max);
 
-    max = width * (height - 1);
+    /*max = width * (height - 1);
     for (int x = width * (height - 7); x < max; ++x) {
       if (tempBuffer[x] < 15)
         tempBuffer[x] = (256 - tempBuffer[x] + 22) % 256;
-    }
+    }*/
   }
 }

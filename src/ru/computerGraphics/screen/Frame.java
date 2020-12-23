@@ -15,11 +15,6 @@ public class Frame extends JFrame implements ActionListener {
   public Frame() {
     setTitle("Task 5");
     setPreferredSize(new Dimension(1366, 768));
-    try {
-      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
 
     bonfirePanel = new BonfirePanel();
     JPanel actionPanel = new JPanel();
